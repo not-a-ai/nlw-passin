@@ -11,7 +11,7 @@ export async function getEvent(app: FastifyInstance) {
       params: z.object({
         eventId: z.string().uuid(),
       }),
-      res: {
+      response: {
         200: { 
           event: z.object({
             id: z.string().uuid(),
