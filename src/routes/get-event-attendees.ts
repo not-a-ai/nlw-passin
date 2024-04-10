@@ -23,7 +23,7 @@ app
         email: z.string().email(),
         createdAt: z.date(),
         checkedInAt: z.date().nullable(),
-      })checkedInAt
+      })
     }
   }
 }, async (req, res) => {
