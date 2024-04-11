@@ -13,6 +13,8 @@ app
       name: z.string().min(4),
       email: z.string().email(),
     }),
+    summary: 'Register an attendee',
+    tags: ['attendees'],
     params: z.object({
       eventId: z.string().uuid(),
     }),

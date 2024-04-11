@@ -11,8 +11,10 @@ export async function getEvent(app: FastifyInstance) {
       params: z.object({
         eventId: z.string().uuid(),
       }),
+      summary: 'Get an event',
+      tags: ['events'],
       response: {
-        200: { 
+        200: z.object({ 
           event: z.object({
             id: z.string().uuid(),
             title: z.string(),
@@ -21,7 +23,7 @@ export async function getEvent(app: FastifyInstance) {
             maximumAttendes: z.number().int().nullable(),
             attendeesAmount: z.number().int(),
           })
-        }
+        })
       },
     }
   }, async (req, res) => {

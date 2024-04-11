@@ -12,17 +12,23 @@ app
     params: z.object({
       eventId: z.string().uuid(),
     }),
+    summary: 'Get event attendees',
+    tags: ['events'],
     querystring: z.object({
       query: z.string().nullish(),
       pageIndex:z.string().nullable().default('0').transform(Number),
     }),
     response: {
       200: z.object({
-        id: z.number(),
-        name: z.string(),
-        email: z.string().email(),
-        createdAt: z.date(),
-        checkedInAt: z.date().nullable(),
+        attendees: z.array(
+          z.object({
+            id: z.number(),
+            name: z.string(),
+            email: z.string().email(),
+            createdAt: z.date(),
+            checkedInAt: z.date().nullable(),
+          })
+        )
       })
     }
   }

@@ -12,6 +12,8 @@ app
     params: z.object({
       attendeeId: z.coerce.number().int(),
     }),
+    summary: 'Check-in an attendee',
+    tags: ['check-ins'],
     response: {
       201: z.object({
         eventId: z.null(),
